@@ -12,5 +12,7 @@
 
 void ssd_read(int index);
 void ssd_write(int index, string data);
+void ssd_full_write(string data);
+void ssd_full_read();
 
 #endif
