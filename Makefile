@@ -1,14 +1,14 @@
 CC = g++
-OBJS = io.o ssd.o main.o
+OBJS = io.o main.o ssd.o
 
 main.o : src/main.cpp
-	$(CC) $(CXXFLAGS) -c src/main.cpp
+	$(CC) -c src/main.cpp
 		
 ssd.o : inc/ssd.h src/ssd.cpp
-	$(CC) $(CXXFLAGS) -c src/ssd.cpp
+	$(CC) -c src/ssd.cpp
 		
 io.o : inc/io.h src/io.cpp
-	$(CC) $(CXXFLAGS) -c src/io.cpp
+	$(CC) -c src/io.cpp
 
 clean:
 	rm -f $(OBJS) main
