@@ -5,8 +5,8 @@
 
 #include "../inc/ssd.h"
 #include "../inc/io.h"
+#include "../test/testapp.h"
 
-#define INIT "init"
 #define WRITE "write"
 #define READ "read"
 #define EXIT "exit"
@@ -18,7 +18,7 @@
 #define TESTAPP2 "testapp2"
 
 const int max_argc = 3;
-const std::string helpFilePath = "../data/help.txt";
+const std::string helpFilePath = "./data/help.txt";
 
 int main() {
     int argc;
@@ -53,13 +53,11 @@ int main() {
 		    openFile.close();
 		}
 	    } else if(argv[1] == FULL_READ) {
-		// ssd_fullread();
-	    } else if(argv[1] == INIT) {
-		// ssd_init();
+		ssd_full_read();
 	    } else if(argv[1] == TESTAPP1) {
-		// test_app1();
+		test_app1();
 	    } else if(argv[1] == TESTAPP2) {
-		// test_app2();
+		test_app2();
 	    } else {
 		std::cout << "error : invalid command\n";	
 	    }
@@ -69,7 +67,7 @@ int main() {
 		ssd_read(index);
 	    } else if(argv[1] == FULL_WRITE) {
 		std::string data = argv[2];
-		// ssd_fullwrite(data);
+		ssd_full_write(data);
 	    } else {
 		std::cout << "error : invalid command\n";	
 	    }

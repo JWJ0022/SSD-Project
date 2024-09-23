@@ -40,7 +40,7 @@
 main
 
 # Data File
-*.txt
+data/
 
 # vscode
 .vscode/
