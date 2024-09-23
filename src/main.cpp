@@ -4,7 +4,6 @@
 #include <fstream>
 
 #include "../inc/ssd.h"
-#include "../src/ssd.cpp"
 #include "../inc/io.h"
 
 #define INIT "init"
