@@ -122,3 +122,4 @@ void fullread() {
     nandFile.close();
     resultFile.close();
 }
+

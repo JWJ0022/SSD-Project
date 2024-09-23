@@ -1,0 +1,8 @@
+=============== SSD OPERATION GUIDE ================
+    write	>>	write <FILE INDEX> <DATA>
+    read	>>	read <FILE INDEX> 
+    fullwrite	>>	fullwrite <DATA> 
+    fullread	>>	fullread
+    exit	>>	exit 
+    help	>>	help 
+====================================================
