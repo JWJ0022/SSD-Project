@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 #include <iostream>
 #include <fstream>
 #include <string>
@@ -32,6 +31,7 @@ void io_read(int idx) {
         if (currentLine++ == idx) break;
     }
 
+    /*
     if (currentLine <= idx && line.empty()) {
         line = "0x00000000";
     }
@@ -45,14 +45,19 @@ void io_read(int idx) {
     }
 
     
-    while (currentLine <= idx) {
+    while (currentLine < idx) {
         resultFile.clear();
         resultFile.seekp(0, ios::end);  
         resultFile << "0x00000000" << endl;
         currentLine++;
     }
+    */
 
-   
+    resultFile.clear();
+    resultFile.seekg(0, ios::beg);  
+    resultFile << line << endl;
+
+    /*
     resultFile.clear();
     resultFile.seekg(0, ios::beg);  
     currentLine = 0;
@@ -66,6 +71,7 @@ void io_read(int idx) {
         }
         currentLine++;
     }
+    */
 
     nandFile.close();
     resultFile.close();
@@ -76,13 +82,13 @@ void io_write(int index, string data) {
     ifstream nandFile(NAND_FILE);
     ofstream tempFile(TEMP_FILE);
 
-    if (!nandFile.is_open()) {
-        handle_file_error(NAND_FILE);
+    if (!tempFile.is_open()) {
+        handle_file_error(TEMP_FILE);
         return;
     }
 
-    if (!tempFile.is_open()) {
-        handle_file_error(TEMP_FILE);
+    if (!nandFile.is_open()) {
+        handle_file_error(NAND_FILE);
         return;
     }
 
@@ -116,6 +122,3 @@ void io_write(int index, string data) {
     tempInput.close();
     nandOutput.close();
 }
-=======
-// io.cpp
->>>>>>> feature/우진

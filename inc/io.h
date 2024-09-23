@@ -4,9 +4,12 @@
 #include <string>
 using namespace std;
 
-#define RESULT_FILE "../data/result.txt"
-#define NAND_FILE "../data/nand.txt"
-#define TEMP_FILE "../data/temp.txt"
+#define NAND_FILE "./data/nand.txt"
+#define RESULT_FILE "./data/result.txt"
+#define TEMP_FILE "./data/temp.txt"
+// #define RESULT_FILE "/mnt/c/Users/USER/Desktop/Project/SSd/SSD-Project/data/result.txt"
+// #define NAND_FILE "/mnt/c/Users/USER/Desktop/Project/SSd/SSD-Project/data/nand.txt"
+// #define TEMP_FILE "/mnt/c/Users/USER/Desktop/Project/SSd/SSD-Project/data/temp.txt"
 #define MAX_LINES 100  
 
 void io_read(int idx);

@@ -4,6 +4,8 @@
 #include <fstream>
 
 #include "../inc/ssd.h"
+#include "../src/ssd.cpp"
+#include "../inc/io.h"
 
 #define INIT "init"
 #define WRITE "write"
@@ -65,7 +67,7 @@ int main() {
 	} else if(argc == 2) {
 	    if(argv[1] == READ) {
 		int index = stoi(argv[2]);
-		// ssd_read(index);
+		ssd_read(index);
 	    } else if(argv[1] == FULL_WRITE) {
 		std::string data = argv[2];
 		// ssd_fullwrite(data);
@@ -76,7 +78,7 @@ int main() {
 	    if(argv[1] == WRITE) {
 		int index = stoi(argv[2]);
 		std::string data = argv[3];	
-		// ssd_write(index, data);
+		ssd_write(index, data);
 	    } else {
 		std::cout << "error : invalid command\n";	
 	    }
