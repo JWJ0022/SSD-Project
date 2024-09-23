@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 #include <iostream>
 #include <fstream>
 #include <string>
@@ -115,3 +116,6 @@ void io_write(int index, string data) {
     tempInput.close();
     nandOutput.close();
 }
+=======
+// io.cpp
+>>>>>>> feature/우진
