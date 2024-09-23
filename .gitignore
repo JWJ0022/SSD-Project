@@ -42,6 +42,9 @@ main
 # Data File
 *.txt
 
+# vscode
+.vscode/
+
 ### VisualStudioCode ###
 .vscode/*
 !.vscode/settings.json
