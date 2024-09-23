@@ -31,52 +31,13 @@ void io_read(int idx) {
         if (currentLine++ == idx) break;
     }
 
-    /*
-    if (currentLine <= idx && line.empty()) {
-        line = "0x00000000";
-    }
-
-    resultFile.seekg(0, ios::beg);
-    currentLine = 0;
-    string resultLine;
-    
-    while (getline(resultFile, resultLine)) {
-        currentLine++;
-    }
-
-    
-    while (currentLine < idx) {
-        resultFile.clear();
-        resultFile.seekp(0, ios::end);  
-        resultFile << "0x00000000" << endl;
-        currentLine++;
-    }
-    */
-
     resultFile.clear();
     resultFile.seekg(0, ios::beg);  
     resultFile << line << endl;
 
-    /*
-    resultFile.clear();
-    resultFile.seekg(0, ios::beg);  
-    currentLine = 0;
-
-    while (getline(resultFile, resultLine)) {
-        if (currentLine == idx) {
-            resultFile.clear();
-            resultFile.seekp(static_cast<streamoff>(resultFile.tellg()) - static_cast<streamoff>(resultLine.size()) - 1);  // Move to the start of the line
-            resultFile << line << endl;  
-            break;
-        }
-        currentLine++;
-    }
-    */
-
     nandFile.close();
     resultFile.close();
 }
-
 
 void io_write(int index, string data) {
     ifstream nandFile(NAND_FILE);
@@ -122,3 +83,43 @@ void io_write(int index, string data) {
     tempInput.close();
     nandOutput.close();
 }
+
+void fullwrite(string data) {
+    ofstream nandFile(NAND_FILE);
+
+    if (!nandFile.is_open()) {
+        handle_file_error(NAND_FILE);
+        return;
+    }
+
+    for (int i = 0; i < MAX_LINES; i++) {
+        nandFile << data << endl;
+    }
+
+    nandFile.close();
+}
+
+void fullread() {
+    ifstream nandFile(NAND_FILE);
+    ofstream resultFile(RESULT_FILE);
+
+    if (!nandFile.is_open()) {
+        handle_file_error(NAND_FILE);
+        return;
+    }
+
+    if (!resultFile.is_open()) {
+        handle_file_error(RESULT_FILE);
+        return;
+    }
+
+    string line;
+    
+    while (getline(nandFile, line)) {
+        resultFile << line << endl;
+    }
+
+    nandFile.close();
+    resultFile.close();
+}
+
